@@ -20,14 +20,17 @@ var displayHours
 var lap = 1
 
 millisecondsTime = 0
-secondsTime = 0
+secondsTime = 00
 minutesTime = 0
 hoursTime = 0
 
 var millisecondsRatio 
 var secondsRatio
 var minutesRatio
+var hoursRatio
 
+var millisecondsAccumulate =0 
+var secondsAccumulate =0
 rightButtonEl.addEventListener('click', function(event) {
     var element = event.target
     addLap();
@@ -72,7 +75,7 @@ function startTimer() {
 
             if (secondsTime >= 60) {
                 minutesTime++;
-                secondsTime = 0;
+                secondsTime = 00;
                 
                 if(minutesTime >= 60) {
                     hoursTime++;
@@ -82,12 +85,13 @@ function startTimer() {
         }
     //FOR ANALOG TIMER
     
-   
-    
-    secondsRatio = secondsTime / 60
-    minutesRatio = (secondsRatio / minutesTime) / 60
+    millisecondsAccumulate = millisecondsAccumulate + 1
+    secondsRatio = millisecondsAccumulate / 6000
 
-    console.log(secondsTime)
+    secondsAccumulate= secondsAccumulate + 0.001
+    minutesRatio = secondsAccumulate / 180
+
+
     setRotation(secondsHand, secondsRatio)
     setRotation(minutesHand, minutesRatio)
 
