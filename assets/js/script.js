@@ -14,6 +14,8 @@ var displaySeconds
 var displayMinutes
 var displayHours
 
+var lap = 1
+
 millisecondsTime = 0
 secondsTime = 0
 minutesTime = 0
@@ -21,7 +23,7 @@ hoursTime = 0
 
 rightButtonEl.addEventListener('click', function(event) {
     var element = event.target
-
+    addLap();
     if(element.matches("button")) {
         var state = element.getAttribute("data-state");
         console.log(state)
@@ -100,7 +102,6 @@ function startTimer() {
     }
         
     },10)
-    addLap()
 } 
 
 function reset() {
@@ -118,16 +119,17 @@ timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
 
 function addLap() {
     addLapDisplay();
+    lap++
 }
 
 function addLapDisplay() {
-    mainEl.setAttribute("style","border-bottom:none;")
-    divEl1.setAttribute("class","row")
-    divEl1.setAttribute("style","padding: 2vh 3vw; border-top: 2px solid #1B1B1B; border-bottom: 2px solid #1B1B1B; color:#FFFFFF; font-size: 3vw")
-    textEl1.textContent = "Lap 1"
-    lapEl1.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds
+    var lapRecord = recordsEl.appendChild(document.createElement("div"));
+    var lapNumber = lapRecord.appendChild(document.createElement("div"));
+    var lapTime = lapRecord.appendChild(document.createElement("div"));
 
-    recordsEl.appendChild(divEl1);
-    divEl1.appendChild(textEl1);
-    divEl1.appendChild(lapEl1);
+    lapRecord.setAttribute("class","row")
+    lapRecord.setAttribute("style","padding: 2vh 3vw; border-bottom: 2px solid #1B1B1B; color:#FFFFFF; font-size: 3vw")
+
+    lapNumber.textContent = "Lap " + lap;
+    lapTime.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds
 }

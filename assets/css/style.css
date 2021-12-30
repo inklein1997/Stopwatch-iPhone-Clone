@@ -18,14 +18,14 @@
     display:flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    gap:1vw;
+    gap:5vw;
     border-bottom:var(--darkgrey) 2px solid
 
 }
 
 body {
     background-color: var(--black);
-    padding:2vw;
+    padding:20vh 2vw 2vh 2vw;
 }
 
 #timer {
@@ -55,14 +55,14 @@ button {
     background-color: var(--greenclick);
     box-shadow:0 0 0 0.5vw var(--greenclick);
 }
-/* 
-[data-stop="Stop"] {
+
+[data-stop="Stop"]:active {
     background-color: var(--maroon);
 }
 
-[data-stop="Start"] {
+[data-stop="Start"]:active {
     background-color: var(--darkgreen);
-} */
+}
 
 #lap:active {
     background-color: var(--darkgrey);
@@ -109,3 +109,8 @@ input {
     background-color: var(--grey);
 }
 
+@media screen and (max-width: 1000px) {
+    #timer {
+        font-size: 22.5vw;
+    }
+}
