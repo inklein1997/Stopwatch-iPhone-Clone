@@ -17,7 +17,11 @@
         <div class = row>
             <div id=timer data-timer>00:00.00</div>
             <button id=lap data-lap>Reset</button>
-            <input type="checkbox" id=checkbox data-checkbox>
+            <div id= checkbox class=row>
+                <input type="checkbox" id="toggle" data-checkbox>
+                <label for="toggle"><div class=dot id=leftdot></div></label>
+                <label for="toggle"><div class=dot id=rightdot></div></label>
+            </div>
             <button id=start data-start>Start</button>
         </div>
         <div data-laprecords></div>
