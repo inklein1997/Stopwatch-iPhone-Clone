@@ -55,6 +55,14 @@ button {
     box-shadow:0 0 0 0.5vw var(--greenclick);
 }
 
+[data-stop="Stop"] {
+    background-color: var(--maroon);
+}
+
+[data-stop="Start"] {
+    background-color: var(--darkgreen);
+}
+
 #lap:active {
     background-color: var(--darkgrey);
     box-shadow:0 0 0 0.5vw var(--darkgrey);
