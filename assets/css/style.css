@@ -1,0 +1,60 @@
+:root {
+    --grey:#333333;
+    --darkgrey:#1B1B1B;
+    --black:#000000;
+    --red:#FF453A;
+    --maroon:#320E0B;
+    --white:#FFFFFF;
+    --darkgreen:#082A11;
+    --green:#2ED158;
+    --greenclick:#041609;
+}
+
+* {
+    font-family: 'Nanum Gothic', sans-serif;;
+}
+
+.row {
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    border: yellow 2px solid;
+    gap:2vw
+}
+
+body {
+    background-color: var(--black);
+    padding:2vw;
+}
+
+#timer {
+    color:var(--white);
+    font-size: 22.5vw;
+    flex: 1 1 100%;
+    text-align: center;
+}
+
+button {
+    font-size: 2vw;
+    width: 15vw;
+    height:15vw;
+    border-radius: 360px;
+    border: var(--black) 0.5vw solid;
+    
+}
+
+
+#start {
+    background-color: var(--darkgreen);
+    color: var(--green);
+    box-shadow:0 0 0 0.5vw var(--darkgreen);
+    margin: 2vw;
+}
+
+#lap {
+    background-color: var(--grey);
+    color: var(--white);
+    box-shadow:0 0 0 0.5vw var(--grey) ;
+    margin: 2vw;
+   
+}

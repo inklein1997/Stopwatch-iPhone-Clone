@@ -3,15 +3,22 @@
     <head>
         <title>Stopwatch iPhone Clone</title>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- <link rel="stylesheet" href=./assets/css/reset.css> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href=./assets/css/reset.css>
         <link rel="stylesheet" href=./assets/css/style.css>
+        
+        
     </head>
     <body>
         <div class = row>
-            <div id=timer data-timer>45:05.12</div>
-            <button id=lap data-lap>Lap</button>
+            <div id=timer data-timer>00:00.00</div>
+            <button id=lap data-lap>Reset</button>
             <input type="checkbox" id=checkbox data-checkbox>
-            <button id=stop data-stop>Stop</button>
+            <button id=start data-start>Start</button>
         </div>
         <div data-laprecords></div>
         <script src="assets/js/script.js"></script>
