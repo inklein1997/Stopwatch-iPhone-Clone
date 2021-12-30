@@ -18,7 +18,8 @@
     display:flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    gap:2vw
+    gap:1vw
+
 }
 
 body {
@@ -36,7 +37,7 @@ body {
 button {
     font-size: 2vw;
     width: 15vw;
-    height:15vw;
+    height:15vh;
     border-radius: 360px;
     border: var(--black) 0.5vw solid;
     
@@ -78,7 +79,7 @@ input {
 .dot {
     display:block;
     width:2vw;
-    height:2vw;
+    height:2vh;
     background-color: white;
     border-radius: 360px;
 }
