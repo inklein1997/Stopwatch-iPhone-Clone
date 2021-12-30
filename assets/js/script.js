@@ -128,7 +128,7 @@ function addLapDisplay() {
     var lapTime = lapRecord.appendChild(document.createElement("div"));
 
     lapRecord.setAttribute("class","row")
-    lapRecord.setAttribute("style","padding: 2vh 3vw; border-bottom: 2px solid #1B1B1B; color:#FFFFFF; font-size: 3vw")
+    lapRecord.setAttribute("style","padding: 2vh 3vw; border-bottom: 2px solid #1B1B1B; color:#FFFFFF; font-size: 1em")
 
     lapNumber.textContent = "Lap " + lap;
     lapTime.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds

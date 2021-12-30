@@ -15,21 +15,28 @@
     </head>
     <body>
         <div class = row data-container>
-            <div id=timer data-timer>00:00.00</div>
-            <button 
-            id=lap 
-            data-reset="reset"
-            data-lap="lap">Lap</button>
-            <div id= checkbox class=row>
-                <input type="checkbox" id="toggle" data-checkbox>
-                <label for="toggle"><div class=dot id=leftdot></div></label>
-                <label for="toggle"><div class=dot id=rightdot></div></label>
+            <div>
+                <div id=timer data-timer>00:00.00</div>
+                <div id=analog>
+                    <div id=secondsArm></div>
+                    <div id=minutesArm></div>
+                    <img id=analogclock src="assets/images/stopwatch-background.png">
+                </div>
             </div>
-            <button 
-            id=start 
-            data-state="Start" 
-            data-start="Start" 
-            data-stop="Stop">Start</button>
+                <button 
+                id=lap 
+                data-reset="reset"
+                data-lap="lap">Lap</button>
+                <div id= checkbox class=row>
+                    <input type="checkbox" id="toggle" data-checkbox>
+                    <label for="toggle"><div class=dot id=leftdot></div></label>
+                    <label for="toggle"><div class=dot id=rightdot></div></label>
+                </div>
+                <button 
+                id=start 
+                data-state="Start" 
+                data-start="Start" 
+                data-stop="Stop">Start</button>
         </div>
         <div data-laprecords></div>
         <script src="assets/js/script.js"></script>
