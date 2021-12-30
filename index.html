@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang=en-us>
     <head>
-        <title>Insert Title</title>
+        <title>Stopwatch iPhone Clone</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href=./assets/css/reset.css>
+        <!-- <link rel="stylesheet" href=./assets/css/reset.css> -->
         <link rel="stylesheet" href=./assets/css/style.css>
     </head>
     <body>
+        <div class = row>
+            <div id=timer data-timer>45:05.12</div>
+            <button id=lap data-lap>Lap</button>
+            <input type="checkbox" id=checkbox data-checkbox>
+            <button id=stop data-stop>Stop</button>
+        </div>
+        <div data-laprecords></div>
         <script src="assets/js/script.js"></script>
     </body>
 </html>
