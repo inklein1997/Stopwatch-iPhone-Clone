@@ -80,3 +80,11 @@ input {
 #rightdot {
     background-color: var(--grey);
 }
+
+#checkbox:active #rightdot{
+    background-color: var(--white);
+}
+
+#checkbox:active #leftdot{
+    background-color: var(--grey);
+}
