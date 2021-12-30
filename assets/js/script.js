@@ -11,10 +11,10 @@ var displayMilliseconds
 var displayMinutes
 var displayHours
 
-var millisecondsTime
-var secondsTime
-var minutesTime
-var hoursTime
+millisecondsTime = 0
+secondsTime = 0
+minutesTime = 0
+hoursTime = 0
 
 rightButtonEl.addEventListener('click', function(event) {
     var element = event.target
@@ -37,10 +37,6 @@ rightButtonEl.addEventListener('click', function(event) {
 })
 
 function startTimer() { 
-    millisecondsTime = 0
-    secondsTime = 0
-    minutesTime = 0
-    hoursTime = 0
     timeInterval = setInterval(function() {
         millisecondsTime = millisecondsTime + 1
         if (millisecondsTime >= 100) {
