@@ -18,7 +18,8 @@
     display:flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    gap:1vw
+    gap:1vw;
+    border-bottom:var(--darkgrey) 2px solid
 
 }
 

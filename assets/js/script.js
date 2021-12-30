@@ -2,12 +2,15 @@ const timerEl = document.querySelector('[data-timer]');
 const leftButtonEl = document.querySelector('[data-lap]');
 const rightButtonEl = document.querySelector('[data-start]');
 const recordsEl = document.querySelector('[data-laprecords]');
-const lapRecordEl1 = document.createElement('div');
+const mainEl = document.querySelector('[data-container]')
+const divEl1 = document.createElement('div');
+const textEl1 = document.createElement('div');
+const lapEl1 = document.createElement('div');
 
 var timeInterval
 
 var displayMilliseconds
-var displayMilliseconds
+var displaySeconds
 var displayMinutes
 var displayHours
 
@@ -46,7 +49,7 @@ leftButtonEl.addEventListener('click',function(event) {
     if(element.matches("button")) {
         var state = element.getAttribute("data-state")
         if (state === "data-lap") {
-            console.log("lap data")
+            addLap();
         } else {reset()}
     }
 })
@@ -96,7 +99,8 @@ function startTimer() {
         timerEl.setAttribute("style","font-size: 16.5vw")
     }
         
-    },100)
+    },10)
+    addLap()
 } 
 
 function reset() {
@@ -110,4 +114,20 @@ displayMilliseconds = "00"
 displayMinutes = "00"
 displayHours = "00"
 timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+}
+
+function addLap() {
+    addLapDisplay();
+}
+
+function addLapDisplay() {
+    mainEl.setAttribute("style","border-bottom:none;")
+    divEl1.setAttribute("class","row")
+    divEl1.setAttribute("style","padding: 2vh 3vw; border-top: 2px solid #1B1B1B; border-bottom: 2px solid #1B1B1B; color:#FFFFFF; font-size: 3vw")
+    textEl1.textContent = "Lap 1"
+    lapEl1.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds
+
+    recordsEl.appendChild(divEl1);
+    divEl1.appendChild(textEl1);
+    divEl1.appendChild(lapEl1);
 }
