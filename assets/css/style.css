@@ -54,14 +54,14 @@ button {
     background-color: var(--greenclick);
     box-shadow:0 0 0 0.5vw var(--greenclick);
 }
-
+/* 
 [data-stop="Stop"] {
     background-color: var(--maroon);
 }
 
 [data-stop="Start"] {
     background-color: var(--darkgreen);
-}
+} */
 
 #lap:active {
     background-color: var(--darkgrey);
@@ -69,9 +69,9 @@ button {
 }
 
 #lap {
-    background-color: var(--grey);
+    background-color: var(--darkgrey);
     color: var(--white);
-    box-shadow:0 0 0 0.5vw var(--grey) ;
+    box-shadow:0 0 0 0.5vw var(--darkgrey) ;
     margin: 2vw;
 }
 

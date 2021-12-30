@@ -16,13 +16,17 @@
     <body>
         <div class = row>
             <div id=timer data-timer>00:00.00</div>
-            <button id=lap data-lap>Reset</button>
+            <button 
+            id=lap 
+            data-reset="reset"
+            data-lap="lap">Lap</button>
             <div id= checkbox class=row>
                 <input type="checkbox" id="toggle" data-checkbox>
                 <label for="toggle"><div class=dot id=leftdot></div></label>
                 <label for="toggle"><div class=dot id=rightdot></div></label>
             </div>
-            <button id=start 
+            <button 
+            id=start 
             data-state="Start" 
             data-start="Start" 
             data-stop="Stop">Start</button>

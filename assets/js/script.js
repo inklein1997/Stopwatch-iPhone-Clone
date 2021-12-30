@@ -26,13 +26,28 @@ rightButtonEl.addEventListener('click', function(event) {
             element.setAttribute("data-state","data-stop");
             element.textContent = "Stop";
             element.setAttribute("style","background-color:#320E0B; color:#FF453A;box-shadow:0 0 0 0.5vw #320E0B");
+            leftButtonEl.setAttribute("data-state","data-lap");
+            leftButtonEl.textContent = "Lap";
             startTimer()
         } else {
             element.setAttribute("data-state","Start");
             element.setAttribute("style","background-color:#082A11; color:#2ED158;box-shadow:0 0 0 0.5vw #082A11")
             element.textContent = "Start";
+            leftButtonEl.setAttribute("data-state","data-reset");
+            leftButtonEl.textContent = "Reset"
             clearTimeout(timeInterval)
         }
+    }
+})
+
+leftButtonEl.addEventListener('click',function(event) {
+    var element = event.target
+
+    if(element.matches("button")) {
+        var state = element.getAttribute("data-state")
+        if (state === "data-lap") {
+            console.log("lap data")
+        } else {reset()}
     }
 })
 
@@ -81,6 +96,18 @@ function startTimer() {
         timerEl.setAttribute("style","font-size: 16.5vw")
     }
         
-    },1)
+    },100)
 } 
 
+function reset() {
+millisecondsTime = 0
+secondsTime = 0
+minutesTime = 0
+hoursTime = 0
+
+displayMilliseconds = "00"
+displayMilliseconds = "00"
+displayMinutes = "00"
+displayHours = "00"
+timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+}
