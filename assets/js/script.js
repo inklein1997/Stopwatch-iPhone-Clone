@@ -7,6 +7,9 @@ const divEl1 = document.createElement('div');
 const textEl1 = document.createElement('div');
 const lapEl1 = document.createElement('div');
 
+const secondsHand = document.querySelector('[data-secondsHand]');
+const minutesHand = document.querySelector('[data-minutesHand]');
+
 var timeInterval
 
 var displayMilliseconds
@@ -20,6 +23,10 @@ millisecondsTime = 0
 secondsTime = 0
 minutesTime = 0
 hoursTime = 0
+
+var millisecondsRatio 
+var secondsRatio
+var minutesRatio
 
 rightButtonEl.addEventListener('click', function(event) {
     var element = event.target
@@ -73,7 +80,18 @@ function startTimer() {
                 }
             }
         }
+    //FOR ANALOG TIMER
+    
+   
+    
+    secondsRatio = secondsTime / 60
+    minutesRatio = (secondsRatio / minutesTime) / 60
 
+    console.log(secondsTime)
+    setRotation(secondsHand, secondsRatio)
+    setRotation(minutesHand, minutesRatio)
+
+    // FOR DIGITAL TIMER
     if(millisecondsTime <= 9) {
         displayMilliseconds = "0" + millisecondsTime.toString();
     } else {
@@ -115,6 +133,10 @@ displayMilliseconds = "00"
 displayMinutes = "00"
 displayHours = "00"
 timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+}
+
+function setRotation(element, rotationRatio) {
+    element.style.transform = "rotate(" + (rotationRatio*360 +270) + "deg)";
 }
 
 function addLap() {

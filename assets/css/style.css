@@ -57,7 +57,7 @@ body {
     position: absolute;
     top:49.5%;
     left:50%;
-    /* transform: rotate(-90deg); */
+    transform: rotate(-90deg);
     transform-origin: left;
 }
 
@@ -69,6 +69,8 @@ body {
     background-color: var(--orange);
     left:50%;
     top:32%;
+    transform: rotate(-90deg);
+
 }
 
 button {
