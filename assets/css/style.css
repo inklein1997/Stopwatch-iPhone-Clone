@@ -49,6 +49,16 @@ button {
     margin: 2vw;
 }
 
+#start:active {
+    background-color: var(--greenclick);
+    box-shadow:0 0 0 0.5vw var(--greenclick);
+}
+
+#lap:active {
+    background-color: var(--darkgrey);
+    box-shadow:0 0 0 0.5vw var(--darkgrey);
+}
+
 #lap {
     background-color: var(--grey);
     color: var(--white);
@@ -88,3 +98,4 @@ input {
 #checkbox:active #leftdot{
     background-color: var(--grey);
 }
+
