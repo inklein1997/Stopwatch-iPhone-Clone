@@ -15,8 +15,9 @@ rightButtonEl.addEventListener('click', function() {
 
 function startTimer() {
     var millisecondsTime = 0
-    var secondsTime = 0
-    var minutesTime = 0
+    var secondsTime = 55
+    var minutesTime = 59
+    var hoursTime = 0
     
     var timeInterval = setInterval(function() {
         millisecondsTime = millisecondsTime + 1
@@ -27,8 +28,13 @@ function startTimer() {
             if (secondsTime >= 60) {
                 minutesTime++;
                 secondsTime = 0;
+                
+                if(minutesTime >= 60) {
+                    hoursTime++;
+                    minutesTime = 0;
+                }
+            }
         }
-    }
 
     if(millisecondsTime <= 9) {
         displayMilliseconds = "0" + millisecondsTime.toString();
@@ -45,9 +51,18 @@ function startTimer() {
     } else {
         displayMinutes = minutesTime
     }
-    timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds
-
+    if(hoursTime <= 9) {
+        displayHours = "0" + hoursTime.toString();
+    } else {
+        displayHours = hoursTime
+    }
+    if (hoursTime == 0) {
+    timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+    } else {
+        timerEl.textContent = displayHours+":"+displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+        timerEl.setAttribute("style","font-size: 16.5vw")
+    }
         
-    },10)
+    },1)
 } 
 
