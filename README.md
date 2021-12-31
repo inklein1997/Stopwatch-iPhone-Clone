@@ -3,12 +3,20 @@
 ## Table of Contents
 - [Project Goal](##Project-Goal)
 - [Links](##Links)
+- [Implemented Technologies](##Implemented-Technologies)
 - [Screenshot of Application](##Screenshot-of-Application)
 - [User Instructions](##User-instructions)
 - [Acknowledgements](##Acknowledgements)
 
 ## Project Goal
 To replicate both the functionality and display of an iPhone stopwatch.
+
+## Implemented Technologies
+- Advanced CSS
+- Responsive Design
+- HTML5
+- Vanilla JavaScript
+- APIs
 
 ## Links
 - ### [URL to Deployed Application](https://inklein1997.github.io/Stopwatch-iPhone-Clone/)
