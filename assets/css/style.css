@@ -161,8 +161,9 @@ input {
     #timer {
         font-size: 22.5vw;
     }
-    .button {
-        width:200px;
-        height:200px;
+    button {
+        width: 126px;
+        height:126px;
+        font-size: 2em;
     }
 }
