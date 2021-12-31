@@ -33,11 +33,15 @@ body {
 }
 
 /* Need to add translation and animation */
+#timerandanalog {
+    flex: 1 1 100%
+}
+
 
 /* digital timer */
 #timer {
     color:var(--white);
-    font-size: 22.5vw;
+    font-size: 16.5em;
     flex: 1 1 100%;
     text-align: center;
 }
@@ -153,8 +157,12 @@ input {
     background-color: var(--grey);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1137px) {
     #timer {
         font-size: 22.5vw;
+    }
+    .button {
+        width:200px;
+        height:200px;
     }
 }
