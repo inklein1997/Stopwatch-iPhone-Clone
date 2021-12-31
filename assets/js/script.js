@@ -3,6 +3,7 @@ const leftButtonEl = document.querySelector('[data-lap]');
 const rightButtonEl = document.querySelector('[data-start]');
 const recordsEl = document.querySelector('[data-laprecords]');
 const mainEl = document.querySelector('[data-container]')
+
 const divEl1 = document.createElement('div');
 const textEl1 = document.createElement('div');
 const lapEl1 = document.createElement('div');
@@ -12,18 +13,23 @@ const minutesHand = document.querySelector('[data-minutesHand]');
 
 var timeInterval
 
+
+// for digital clock
 var displayMilliseconds
 var displaySeconds
 var displayMinutes
 var displayHours
 
-var lap = 1
-
 millisecondsTime = 0
-secondsTime = 00
+secondsTime = 0
 minutesTime = 0
 hoursTime = 0
 
+// for lap number and entries
+var laptime;
+var lap = 1
+
+// for analog clock
 var millisecondsRatio 
 var secondsRatio
 var minutesRatio
@@ -31,70 +37,72 @@ var hoursRatio
 
 var millisecondsAccumulate =0 
 var secondsAccumulate =0
-rightButtonEl.addEventListener('click', function(event) {
+
+
+rightButtonEl.addEventListener('click', function(event) {       //start and stop button
     var element = event.target
     addLap();
     if(element.matches("button")) {
         var state = element.getAttribute("data-state");
         console.log(state)
-        if (state === "Start") {
+        if (state === "Start") {                                //condition switches "start" to "stop" using data attributes
             element.setAttribute("data-state","data-stop");
             element.textContent = "Stop";
             element.setAttribute("style","background-color:#320E0B; color:#FF453A;box-shadow:0 0 0 0.5vw #320E0B");
-            leftButtonEl.setAttribute("data-state","data-lap");
+            leftButtonEl.setAttribute("data-state","data-lap"); //switches reset button 
             leftButtonEl.textContent = "Lap";
-            startTimer()
+            startTimer()                                        //starts timer if button initially said stasrt
         } else {
             element.setAttribute("data-state","Start");
             element.setAttribute("style","background-color:#082A11; color:#2ED158;box-shadow:0 0 0 0.5vw #082A11")
             element.textContent = "Start";
-            leftButtonEl.setAttribute("data-state","data-reset");
+            leftButtonEl.setAttribute("data-state","data-reset");//switches from lap to reset button if timer has started. 
             leftButtonEl.textContent = "Reset"
-            clearTimeout(timeInterval)
+            clearTimeout(timeInterval)                           //pauses timer
         }
     }
 })
 
-leftButtonEl.addEventListener('click',function(event) {
+leftButtonEl.addEventListener('click',function(event) {     // reset and lap button
     var element = event.target
 
     if(element.matches("button")) {
         var state = element.getAttribute("data-state")
         if (state === "data-lap") {
-            addLap();
-        } else {reset()}
+            addLap();                                       //adds lap to stopwatch if button is says lap
+        } else {reset()}                                    //resets timer if button says reset
     }
 })
 
-function startTimer() { 
+function startTimer() {     //starts analog and digital timer
     timeInterval = setInterval(function() {
         millisecondsTime = millisecondsTime + 1
-        if (millisecondsTime >= 100) {
+        if (millisecondsTime >= 100) {                      //every 100ms adds 1 second
             secondsTime++;
             millisecondsTime = 0;
 
-            if (secondsTime >= 60) {
+            if (secondsTime >= 60) {                        //every 60 seconds adds 1 minute
                 minutesTime++;
                 secondsTime = 00;
                 
-                if(minutesTime >= 60) {
+                if(minutesTime >= 60) {                     //every 60 minutes adds 1 hour
                     hoursTime++;
                     minutesTime = 0;
                 }
             }
         }
-    //FOR ANALOG TIMER
     
-    millisecondsAccumulate = millisecondsAccumulate + 1
-    secondsRatio = millisecondsAccumulate / 6000
+    
+    //FOR ANALOG TIMER
+    millisecondsAccumulate = millisecondsAccumulate + 1     
+    secondsRatio = millisecondsAccumulate / 6000        
 
     secondsAccumulate= secondsAccumulate + 0.001
     minutesRatio = secondsAccumulate / 180
 
-
-    setRotation(secondsHand, secondsRatio)
-    setRotation(minutesHand, minutesRatio)
-
+    setRotation(secondsHand, secondsRatio)                  //for seconds Hand moving
+    setRotation(minutesHand, minutesRatio)                  //for minutes Hand moving
+    
     // FOR DIGITAL TIMER
     if(millisecondsTime <= 9) {
         displayMilliseconds = "0" + millisecondsTime.toString();
@@ -122,24 +130,24 @@ function startTimer() {
         timerEl.textContent = displayHours+":"+displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
         timerEl.setAttribute("style","font-size: 16.5vw")
     }
-        
+    lapTime.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds
     },10)
 } 
 
-function reset() {
+function reset() {      //resets timer display to zero  **Need to fix analog timer to also reset**
 millisecondsTime = 0
 secondsTime = 0
 minutesTime = 0
 hoursTime = 0
 
 displayMilliseconds = "00"
-displayMilliseconds = "00"
+displaySeconds = "00"
 displayMinutes = "00"
 displayHours = "00"
 timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
 }
 
-function setRotation(element, rotationRatio) {
+function setRotation(element, rotationRatio) {      //allows for hand rotation in digital clock
     element.style.transform = "rotate(" + (rotationRatio*360 +270) + "deg)";
 }
 
@@ -151,11 +159,11 @@ function addLap() {
 function addLapDisplay() {
     var lapRecord = recordsEl.appendChild(document.createElement("div"));
     var lapNumber = lapRecord.appendChild(document.createElement("div"));
-    var lapTime = lapRecord.appendChild(document.createElement("div"));
+    lapTime = lapRecord.appendChild(document.createElement("div"));
 
     lapRecord.setAttribute("class","row")
     lapRecord.setAttribute("style","padding: 2vh 3vw; border-bottom: 2px solid #1B1B1B; color:#FFFFFF; font-size: 1em")
 
     lapNumber.textContent = "Lap " + lap;
-    lapTime.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds
+    
 }

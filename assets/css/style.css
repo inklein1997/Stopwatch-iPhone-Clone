@@ -1,3 +1,4 @@
+/* create commonly used variables */
 :root {
     --grey:#333333;
     --darkgrey:#1B1B1B;
@@ -11,10 +12,13 @@
     --orange:#F28907;
 }
 
+
+/* setting text to same font */
 * {
     font-family: 'Nanum Gothic', sans-serif;;
 }
 
+/* styles all rows */
 .row {
     display:flex;
     flex-flow: row wrap;
@@ -26,9 +30,22 @@
 
 body {
     background-color: var(--black);
-    padding:20vh 2vw 2vh 2vw;
 }
 
+/* Need to add translation and animation */
+/* #timerandanalog {
+    display:flex;
+    flex-wrap:nowrap;
+    position: relative;
+}
+
+#timercontainer {
+    position:absolute;
+    left:-100%
+} */
+
+
+/* digital timer */
 #timer {
     color:var(--white);
     font-size: 22.5vw;
@@ -36,6 +53,7 @@ body {
     text-align: center;
 }
 
+/* analog timer */
 #analog {
     border-radius: 360px;
     width: 500px;
@@ -45,6 +63,7 @@ body {
     position:relative;
 }
 
+/* Analog clock parts */
 #analogclock {
     max-width: 100%;
     max-height: 100%;
@@ -89,19 +108,13 @@ button {
     margin: 2vw;
 }
 
+/* Imitates apples color change during click  */
 #start:active {
     background-color: var(--greenclick);
     box-shadow:0 0 0 0.5vw var(--greenclick);
 }
 
-[data-stop="Stop"]:active {
-    background-color: var(--maroon);
-}
-
-[data-stop="Start"]:active {
-    background-color: var(--darkgreen);
-}
-
+/* Imitates apples color change during click  */
 #lap:active {
     background-color: var(--darkgrey);
     box-shadow:0 0 0 0.5vw var(--darkgrey);
@@ -114,6 +127,9 @@ button {
     margin: 2vw;
 }
 
+
+/* For screen toggle */
+/* removes checkbox */
 input {
     display:none;
 }
@@ -121,6 +137,7 @@ input {
 #checkbox {
     cursor: pointer;
     align-self: center;
+    border: none;
 }
 
 .dot {
