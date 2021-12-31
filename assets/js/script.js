@@ -29,14 +29,13 @@ hoursTime = 0
 var laptime;
 var lap = 1
 
-// for analog clock
-var millisecondsRatio 
+// for analog clock 
 var secondsRatio
 var minutesRatio
-var hoursRatio
 
-var millisecondsAccumulate =0 
-var secondsAccumulate =0
+
+var millisecondsAccumulate = 0 
+var secondsAccumulate = 0
 
 
 rightButtonEl.addEventListener('click', function(event) {       //start and stop button
@@ -134,7 +133,8 @@ function startTimer() {     //starts analog and digital timer
     },10)
 } 
 
-function reset() {      //resets timer display to zero  **Need to fix analog timer to also reset**
+function reset() {      //resets timer and analog display to zero 
+//Resets display for Digital Timer
 millisecondsTime = 0
 secondsTime = 0
 minutesTime = 0
@@ -144,10 +144,19 @@ displayMilliseconds = "00"
 displaySeconds = "00"
 displayMinutes = "00"
 displayHours = "00"
+
 timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+
+//Resets display for Analog timer
+secondsRatio = 0
+minutesRatio = 0
+millisecondsAccumulate = 0 
+secondsAccumulate = 0
+setRotation(secondsHand, secondsRatio);
+setRotation(minutesHand, minutesRatio)
 }
 
-function setRotation(element, rotationRatio) {      //allows for hand rotation in digital clock
+function setRotation(element, rotationRatio) {      //allows for hand rotation in analog timer
     element.style.transform = "rotate(" + (rotationRatio*360 +270) + "deg)";
 }
 
