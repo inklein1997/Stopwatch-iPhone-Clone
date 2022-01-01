@@ -206,6 +206,7 @@ function addLap() {
 
 function addLapDisplay() {
     lapRecord = recordsEl.appendChild(document.createElement("div"));
+    console.log(recordsEl.children)
     var lapNumber = lapRecord.appendChild(document.createElement("div"));
     lapTime = lapRecord.appendChild(document.createElement("div"));
 
