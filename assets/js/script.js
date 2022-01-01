@@ -94,10 +94,13 @@ leftButtonEl.addEventListener('click',function(event) {     // reset and lap but
     var element = event.target
 
     if(element.matches("button")) {
-        var state = element.getAttribute("data-state")
+        var state = element.getAttribute("data-state");
         if (state === "data-lap") {
             addLap();                                       //adds lap to stopwatch if button is says lap
-        } else {reset()}                                    //resets timer if button says reset
+        } else {
+            rightButtonEl.setAttribute("data-state","Start");
+            reset();
+        }                                    //resets timer if button says reset
     }
 })
 
@@ -183,9 +186,12 @@ function reset() {      //resets timer and analog display to zero
     setRotation(secondsHand, secondsRatio);
     setRotation(minutesHand, minutesRatio);
 
-    lapRecord.remove();
-    console.log(recordsEl)
-    console.log(lapRecord)
+    // Resets lap display
+        for (var i = 0; i < lap-1; i++) {
+        recordsEl.removeChild(recordsEl.lastChild);
+        }
+    lap = 1
+    console.log("lap number is " + lap)
     }
     
 
@@ -195,7 +201,7 @@ function setRotation(element, rotationRatio) {      //allows for hand rotation i
 
 function addLap() {
     addLapDisplay();
-    lap=lap +1
+    lap++
 }
 
 function addLapDisplay() {
