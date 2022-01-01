@@ -1,5 +1,5 @@
 const timerEl = document.querySelector('[data-timer]');
-const analogEl = document.querySelector('#analogcontainer')
+const analogEl = document.querySelector('#analog')
 const leftButtonEl = document.querySelector('[data-lap]');
 const rightButtonEl = document.querySelector('[data-start]');
 const recordsEl = document.querySelector('[data-laprecords]');
@@ -45,10 +45,14 @@ checkbox.addEventListener('click', function(event) {
     event.preventDefault();
     if (analogEl.classList == "hide") {
     analogEl.classList.remove('hide');
-    timerEl.classList.add('hide')
+    timerEl.classList.add('hide');
+    leftDot.setAttribute("style","background-color:#333333")
+    rightDot.setAttribute("style","background-color:#FFFFFF")
     } else {
     analogEl.classList.add('hide');
-    timerEl.classList.remove('hide')
+    timerEl.classList.remove('hide');
+    leftDot.setAttribute("style","background-color:#FFFFFF")
+    rightDot.setAttribute("style","background-color:#333333")
     }
 })
 
