@@ -18,6 +18,10 @@
     font-family: 'Nanum Gothic', sans-serif;;
 }
 
+.hide {
+    display: none;
+}
+
 /* styles all rows */
 .row {
     display:flex;

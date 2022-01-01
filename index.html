@@ -18,7 +18,7 @@
                 <div id=timercontainer>
                     <div id=timer data-timer>00:00.00</div>
                 </div>
-                <div id=analogcontainer>
+                <div id=analogcontainer class="hide">
                     <div id=analog>
                         <div id=secondsArm data-secondsHand></div>
                         <div id=minutesArm data-minutesHand></div>
@@ -32,7 +32,7 @@
                 data-lap="lap">Lap</button>
                 <div id= checkbox class=row>
                     <input type="checkbox" id="toggle" data-checkbox>
-                    <label for="toggle"><div class=dot id=leftdot></div></label>
+                    <label for="toggle"><div class=dot id=leftdot ></div></label>
                     <label for="toggle"><div class=dot id=rightdot></div></label>
                 </div>
                 <button 
@@ -43,6 +43,6 @@
         </div>
         <div data-laprecords></div>
         <script src="assets/js/script.js"></script>
-        <script src="assets/js/analog.js"></script>
+    
     </body>
 </html>

@@ -1,8 +1,11 @@
 const timerEl = document.querySelector('[data-timer]');
+const analogEl = document.querySelector('#analogcontainer')
 const leftButtonEl = document.querySelector('[data-lap]');
 const rightButtonEl = document.querySelector('[data-start]');
 const recordsEl = document.querySelector('[data-laprecords]');
-const mainEl = document.querySelector('[data-container]')
+const mainEl = document.querySelector('[data-container]');
+const rightDot = document.querySelector('#rightdot');
+const leftDot = document.querySelector('#leftdot');
 
 const divEl1 = document.createElement('div');
 const textEl1 = document.createElement('div');
@@ -37,6 +40,19 @@ var minutesRatio
 var millisecondsAccumulate = 0 
 var secondsAccumulate = 0
 
+rightDot.addEventListener('click', function(event) {
+    event.preventDefault();
+    analogEl.classList.remove('hide');
+    timerEl.classList.add('hide')
+ 
+
+})
+
+leftDot.addEventListener('click', function(event) {
+    event.preventDefault();
+    analogEl.classList.add('hide');
+    timerEl.classList.remove('hide')
+})
 
 rightButtonEl.addEventListener('click', function(event) {       //start and stop button
     var element = event.target
