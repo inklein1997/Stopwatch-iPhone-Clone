@@ -172,7 +172,12 @@ minutesRatio = 0
 millisecondsAccumulate = 0 
 secondsAccumulate = 0
 setRotation(secondsHand, secondsRatio);
-setRotation(minutesHand, minutesRatio)
+setRotation(minutesHand, minutesRatio);
+
+// Resets lap display
+    for (var i = 0; i < lap; i++) {
+    recordsEl.removeChild(recordsEl.childNodes[i]);
+    }
 }
 
 function setRotation(element, rotationRatio) {      //allows for hand rotation in analog timer
