@@ -17,7 +17,6 @@ const minutesHand = document.querySelector('[data-minutesHand]');
 
 var timeInterval
 
-
 // for digital clock
 var displayMilliseconds
 var displaySeconds
@@ -37,8 +36,6 @@ var lapRecord
 // for analog clock 
 var secondsRatio
 var minutesRatio
-
-
 var millisecondsAccumulate = 0 
 var secondsAccumulate = 0
 
@@ -204,7 +201,7 @@ function addLap() {
     lap++
 }
 
-function addLapDisplay() {
+function addLapDisplay() {      //adds HTML element for each lap time
     lapRecord = recordsEl.appendChild(document.createElement("div"));
     console.log(recordsEl.children)
     var lapNumber = lapRecord.appendChild(document.createElement("div"));
