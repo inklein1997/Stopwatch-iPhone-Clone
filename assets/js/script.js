@@ -32,6 +32,7 @@ hoursTime = 0
 // for lap number and entries
 var laptime;
 var lap = 1
+var lapRecord 
 
 // for analog clock 
 var secondsRatio
@@ -182,11 +183,9 @@ function reset() {      //resets timer and analog display to zero
     setRotation(secondsHand, secondsRatio);
     setRotation(minutesHand, minutesRatio);
 
-    // Resets lap display
-        for (var i = 0; i < lap; i++) {
-        recordsEl.removeChild(recordsEl.childNodes[i]);
-        }
-
+    lapRecord.remove();
+    console.log(recordsEl)
+    console.log(lapRecord)
     }
     
 
@@ -196,11 +195,11 @@ function setRotation(element, rotationRatio) {      //allows for hand rotation i
 
 function addLap() {
     addLapDisplay();
-    lap++
+    lap=lap +1
 }
 
 function addLapDisplay() {
-    var lapRecord = recordsEl.appendChild(document.createElement("div"));
+    lapRecord = recordsEl.appendChild(document.createElement("div"));
     var lapNumber = lapRecord.appendChild(document.createElement("div"));
     lapTime = lapRecord.appendChild(document.createElement("div"));
 

@@ -168,7 +168,8 @@ input {
 }
 
 #laprecords {
-  overflow-y: scroll;  
+  overflow-y: scroll;
+  height:38vh;
 }
 
 @media screen and (max-width: 1137px) {
