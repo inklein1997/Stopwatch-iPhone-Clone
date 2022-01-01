@@ -59,7 +59,6 @@ checkbox.addEventListener('click', function(event) {
 
 rightButtonEl.addEventListener('click', function(event) {       //start and stop button
     var element = event.target
-    addLap();
     if(element.matches("button")) {
         var state = element.getAttribute("data-state");
         console.log(state)
@@ -69,9 +68,18 @@ rightButtonEl.addEventListener('click', function(event) {       //start and stop
             element.setAttribute("style","background-color:#320E0B; color:#FF453A;box-shadow:0 0 0 0.5vw #320E0B");
             leftButtonEl.setAttribute("data-state","data-lap"); //switches reset button 
             leftButtonEl.textContent = "Lap";
+            addLap();
             startTimer()                                        //starts timer if button initially said stasrt
-        } else {
-            element.setAttribute("data-state","Start");
+        } else if (state === "Resume") {
+            element.setAttribute("data-state","data-stop");
+            element.textContent = "Stop";
+            element.setAttribute("style","background-color:#320E0B; color:#FF453A;box-shadow:0 0 0 0.5vw #320E0B");
+            leftButtonEl.setAttribute("data-state","data-lap"); //switches reset button 
+            leftButtonEl.textContent = "Lap";
+            startTimer() 
+        }
+        else {
+            element.setAttribute("data-state","Resume");
             element.setAttribute("style","background-color:#082A11; color:#2ED158;box-shadow:0 0 0 0.5vw #082A11")
             element.textContent = "Start";
             leftButtonEl.setAttribute("data-state","data-reset");//switches from lap to reset button if timer has started. 
@@ -153,32 +161,34 @@ function startTimer() {     //starts analog and digital timer
 } 
 
 function reset() {      //resets timer and analog display to zero 
-//Resets display for Digital Timer
-millisecondsTime = 0
-secondsTime = 0
-minutesTime = 0
-hoursTime = 0
+    //Resets display for Digital Timer
+    millisecondsTime = 0
+    secondsTime = 0
+    minutesTime = 0
+    hoursTime = 0
 
-displayMilliseconds = "00"
-displaySeconds = "00"
-displayMinutes = "00"
-displayHours = "00"
+    displayMilliseconds = "00"
+    displaySeconds = "00"
+    displayMinutes = "00"
+    displayHours = "00"
 
-timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+    timerEl.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
 
-//Resets display for Analog timer
-secondsRatio = 0
-minutesRatio = 0
-millisecondsAccumulate = 0 
-secondsAccumulate = 0
-setRotation(secondsHand, secondsRatio);
-setRotation(minutesHand, minutesRatio);
+    //Resets display for Analog timer
+    secondsRatio = 0
+    minutesRatio = 0
+    millisecondsAccumulate = 0 
+    secondsAccumulate = 0
+    setRotation(secondsHand, secondsRatio);
+    setRotation(minutesHand, minutesRatio);
 
-// Resets lap display
-    for (var i = 0; i < lap; i++) {
-    recordsEl.removeChild(recordsEl.childNodes[i]);
+    // Resets lap display
+        for (var i = 0; i < lap; i++) {
+        recordsEl.removeChild(recordsEl.childNodes[i]);
+        }
+
     }
-}
+    
 
 function setRotation(element, rotationRatio) {      //allows for hand rotation in analog timer
     element.style.transform = "rotate(" + (rotationRatio*360 +270) + "deg)";

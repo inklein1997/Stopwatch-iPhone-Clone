@@ -167,12 +167,8 @@ input {
     background-color: var(--grey);
 }
 
-#checkbox:active #rightdot{
-    background-color: var(--white);
-}
-
-#checkbox:active #leftdot{
-    background-color: var(--grey);
+#laprecords {
+  overflow-y: scroll;  
 }
 
 @media screen and (max-width: 1137px) {
@@ -188,4 +184,5 @@ input {
         width: 18px;
         height: 18px;
     }
+
 }
