@@ -99,6 +99,16 @@ body {
     left:50%;
     transform: rotate(90deg);
 }
+#secondsDot {
+    background-color: black;
+    border: var(--orange) 2.5px solid;
+    position: absolute;
+    top:48.5%;
+    left:48.5%;
+    height:10px;
+    width: 10px;
+    border-radius: 360px;
+}
 
 #minutesArm {
     height:3px;
