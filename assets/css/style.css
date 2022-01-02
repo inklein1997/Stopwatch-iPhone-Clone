@@ -121,6 +121,16 @@ body {
     top:31%;
 }
 
+#stopwatch {
+    position:absolute;
+    left:50%;
+    top: 70%;
+    font-size: 1em;
+    color:var(--white);
+    transform:translate(-50%, -50%)
+    ;
+}
+
 button {
     font-size: 2vw;
     width: 15vw;

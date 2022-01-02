@@ -15,6 +15,7 @@ const lapEl1 = document.createElement('div');
 const secondsHand = document.querySelector('[data-secondsHand]');
 const secondsHandRemaining = document.querySelector('[data-secondsHandRemaining]')
 const minutesHand = document.querySelector('[data-minutesHand]');
+const stopwatchDisplay = document.querySelector('[data-stopwatch]')
 
 var timeInterval
 
@@ -132,6 +133,8 @@ function startTimer() {     //starts analog and digital timer
     setRotation2(secondsHandRemaining, secondsRatio)
     setRotation(minutesHand, minutesRatio)                  //for minutes Hand moving
     
+    stopwatchDisplay.textContent = displayMinutes+":"+displaySeconds+"."+displayMilliseconds;
+
     // FOR DIGITAL TIMER
     if(millisecondsTime <= 9) {
         displayMilliseconds = "0" + millisecondsTime.toString();
