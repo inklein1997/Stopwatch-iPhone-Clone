@@ -6,7 +6,7 @@ const recordsEl = document.querySelector('[data-laprecords]');
 const mainEl = document.querySelector('[data-container]');
 const rightDot = document.querySelector('#rightdot');
 const leftDot = document.querySelector('#leftdot');
-const toggle = document.querySelector('#checkbox')
+const toggle = document.querySelector('#checkbox');
 
 const divEl1 = document.createElement('div');
 const textEl1 = document.createElement('div');

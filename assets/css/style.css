@@ -109,7 +109,16 @@ body {
     left:50%;
     top:32%;
     transform: rotate(-90deg);
+}
 
+#minuteDot {
+    height:5px;
+    width:5px;
+    border-radius: 360px;
+    background-color: var(--orange);
+    position:absolute;
+    left:49.3%;
+    top:31%;
 }
 
 button {
