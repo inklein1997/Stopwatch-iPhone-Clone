@@ -13,6 +13,7 @@ const textEl1 = document.createElement('div');
 const lapEl1 = document.createElement('div');
 
 const secondsHand = document.querySelector('[data-secondsHand]');
+const secondsHandRemaining = document.querySelector('[data-secondsHandRemaining]')
 const minutesHand = document.querySelector('[data-minutesHand]');
 
 var timeInterval
@@ -128,6 +129,7 @@ function startTimer() {     //starts analog and digital timer
     minutesRatio = secondsAccumulate / 180
 
     setRotation(secondsHand, secondsRatio)                  //for seconds Hand moving
+    setRotation2(secondsHandRemaining, secondsRatio)
     setRotation(minutesHand, minutesRatio)                  //for minutes Hand moving
     
     // FOR DIGITAL TIMER
@@ -194,6 +196,10 @@ function reset() {      //resets timer and analog display to zero
 
 function setRotation(element, rotationRatio) {      //allows for hand rotation in analog timer
     element.style.transform = "rotate(" + (rotationRatio*360 +270) + "deg)";
+}
+
+function setRotation2(element, rotationRatio) {      //allows for hand rotation in analog timer
+    element.style.transform = "rotate(" + (rotationRatio*360 +90) + "deg)";
 }
 
 function addLap() {
